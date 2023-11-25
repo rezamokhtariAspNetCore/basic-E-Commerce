@@ -58,3 +58,4 @@ Incorporating these tools and practices into your ASP.NET project sets the found
 
 
 and other tools in WWWROOT folder is free to use also you can find in Google or npmjs etc...
+also you have to config you key with SeedGrid and Stripe setting and useing TestMode config in *appsettings.json*
