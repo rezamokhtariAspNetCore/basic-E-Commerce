@@ -1,0 +1,116 @@
+﻿@using Microsoft.AspNetCore.Http
+@using BG.Utility
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Restouran</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Restouran.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/iziToast/dist/css/iziToast.css" />
+    <link rel="stylesheet" href="~/lib/iziToast/dist/css/iziToast.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/dt/datatables.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.13.1/datatables.min.css" />
+    <link rel="stylesheet" href="~/icon/all.css" />
+    <link rel="stylesheet" href="~/Vazirmatn-RD-FD-NL-font-face.css" />
+
+    <!-- Google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body dir="rtl">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary  box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">خرید گلد</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        @if (User.IsInRole(SD.ManagerRole) || User.IsInRole(SD.Buyer))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link " asp-area="" asp-page="/Admin/Order/OrderList">Order List</a>
+                            </li>
+                        }
+                        @if (User.IsInRole(SD.ManagerRole) || User.IsInRole(SD.Seller))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link " asp-area="" asp-page="/Admin/Order/ManageOrder">Manage Order</a>
+                            </li>
+                        }
+                        @if (User.IsInRole(SD.ManagerRole))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="" asp-page="/Admin/Categories/Index">دسته بندی</a>
+                                    <a class="dropdown-item" asp-area="" asp-page="/Admin/GameTypes/Index">نوع گیم</a>
+                                    <a class="dropdown-item" asp-area="" asp-page="/Admin/MenuItems/Index">منو</a>
+
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Register Employee</a>
+                                </div>
+                            </li>
+                        }
+                        @*<li>
+                            <a class="nav-link text-white-50" asp-area="" asp-page="/Client/Cart/Index">
+                                @await Component.InvokeAsync("ShoppingCart")
+                            </a>
+                        </li>*@
+
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- BODY DO NOT THIS -->
+    <div class="container">
+        <!-- BODY DO NOT THIS --> <main role="main" class="pb-3">
+            <!-- BODY DO NOT THIS -->   @RenderBody()
+            <!-- BODY DO NOT THIS -->
+        </main>
+        <!-- BODY DO NOT THIS -->
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - زهرا کلوچه سیاه - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/icon/all.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.tiny.cloud/1/1c8vjvxzlkz8q0oxogyffii216crbggrmvx6j3xei3po5ztx/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script type="text/javascript" src="~/lib/dt/datatables.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.13.1/datatables.min.js"></script>
+    <script src="~/lib/popperjs/core/lib/index.js"></script>
+    <script src="~/lib/tippy.js/dist/tippy-bundle.umd.min.js"></script>
+
+    <script>
+        tippy('#Folloow', { content: 'tooltip' });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

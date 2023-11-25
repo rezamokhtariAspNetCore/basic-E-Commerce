@@ -1,0 +1,36 @@
+﻿@if (TempData["success"] != null)
+{
+	<link rel="stylesheet" href="~/lib/iziToast/dist/css/iziToast.css" />
+	<script src="~/lib/jquery/dist/jquery.min.js" type="text/javascript"></script>
+	<script src="~/lib/iziToast/dist/js/iziToast.js" type="text/javascript"></script>
+	<script style="font-family:'Roboto','Vazirmatn', sans-serif;" type="text/javascript">
+		iziToast.success({ title: '@TempData["success"]' });
+	</script>
+}
+@if (TempData["error"] != null)
+{
+	<link rel="stylesheet" href="~/lib/iziToast/dist/css/iziToast.css" />
+	<script src="~/lib/jquery/dist/jquery.min.js" type="text/javascript"></script>
+	<script src="~/lib/iziToast/dist/js/iziToast.js" type="text/javascript"></script>
+	<script style="font-family:'Roboto','Vazirmatn', sans-serif;" type="text/javascript">
+		iziToast.warning({ title: '@TempData["error"]' });
+	</script>
+}
+@if (TempData["destroy"] != null)
+{
+	<link rel="stylesheet" href="~/lib/iziToast/dist/css/iziToast.css" />
+	<script src="~/lib/jquery/dist/jquery.min.js" type="text/javascript"></script>
+	<script src="~/lib/iziToast/dist/js/iziToast.js" type="text/javascript"></script>
+	<script style="font-family:'Roboto','Vazirmatn', sans-serif;" type="text/javascript">
+		iziToast.warning({ title: '@TempData["destroy"]' });
+	</script>
+}
+@if (TempData["info"] != null)
+{
+	<link rel="stylesheet" href="~/lib/iziToast/dist/css/iziToast.css" />
+	<script src="~/lib/jquery/dist/jquery.min.js" type="text/javascript"></script>
+	<script src="~/lib/iziToast/dist/js/iziToast.js" type="text/javascript"></script>
+	<script style="font-family:'Roboto','Vazirmatn', sans-serif;" type="text/javascript">
+		iziToast.info({ title: '@TempData["info"]' });
+	</script>
+}

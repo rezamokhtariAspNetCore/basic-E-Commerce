@@ -1,0 +1,32 @@
+﻿@page
+@model buygold.Pages.Admin.Categories.CreateModel
+<form method="post" dir="rtl">
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary pl-3"><i class="fa-solid fa-file-circle-plus"></i> ایجاد لیست</h2>
+			<hr />
+		</div>
+		<div asp-validation-summary="All"></div>
+		<div class="mb-3">
+			<label asp-for="Category.Name"></label>&nbsp;&nbsp;&nbsp;<i class="fa-duotone fa-bowl-food"></i>
+			<input asp-for="Category.Name" class="form-control" />
+			<span asp-validation-for="Category.Name" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Category.Author"></label>
+			<input asp-for="Category.Author" class="form-control" />
+			<span asp-validation-for="Category.Author" class="text-danger"></span>
+		</div>
+		<button type="submit" class="btn btn-primary" style="width:150px;"><i class="fa-solid fa-file-circle-plus"></i>&nbsp;&nbsp;&nbsp;ایجاد</button>
+		<a asp-page="Index" class="btn btn-secondary" style="width:250px;"><i class="fa-solid fa-arrow-left-long-to-line"></i>&nbsp;&nbsp;&nbsp;بازگشت به صفخه قبل</a>
+
+	</div>
+
+</form>
+
+
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}

@@ -1,0 +1,39 @@
+﻿@page
+@model buygold.Pages.Admin.MenuItems.IndexModel
+
+<partial name="_notification" />
+<link rel="stylesheet" type="text/css" href="~/lib/dt/datatables.css" />
+
+
+<div class="container p-3 align-items-center" dir="rtl">
+	<div class="row pt-4">
+		<div class="col-6">
+			<h2 class="text-primary"><i class="fa-duotone fa-rectangle-vertical-history"></i>&nbsp;&nbsp;منو غذا</h2>
+		</div>
+		<div class="col-6 text-end">
+			<a asp-page="upsert" class="btn btn-primary">
+				<i class="fa-duotone fa-layer-plus"></i> &nbsp;ساخت منو جدید
+			</a>
+		</div>
+	</div>
+
+	<br /><br />
+
+	<table id="DT_load" class="table table-bordered table-striped text-center" style="width:100%">
+		<thead>
+			<tr>
+				<th>اسم&nbsp;&nbsp;&nbsp;<i class="fa-duotone fa-bowl-chopsticks"></i></th>
+				<th>قیمت&nbsp;&nbsp;&nbsp;<i class="fa-duotone fa-money-check-dollar"></i></th>
+				<th>دسته&nbsp;&nbsp;&nbsp;<i class="fa-duotone fa-barcode"></i></th>
+				<th> بازی&nbsp;&nbsp;&nbsp;<i class="fa-duotone fa-sitemap"></i></th>
+				<th><i class="fa-duotone fa-paint-roller"></i></th>
+			</tr>
+		</thead>
+	</table>
+</div>
+@section scripts{
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/js/MenuItem.js"></script>
+	<script src="~/lib/iziToast/dist/js/iziToast.min.js"></script>
+	<script type="text/javascript" src="~/lib/dt/datatables.js"></script>
+}

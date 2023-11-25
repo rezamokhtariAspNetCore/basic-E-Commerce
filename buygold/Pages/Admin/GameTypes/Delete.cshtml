@@ -1,0 +1,27 @@
+﻿@page
+@model buygold.Pages.Admin.GameTypes.DeleteModel
+
+<form method="post" dir="rtl">
+	<input hidden asp-for="GameType.Id" />
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary pl-3">حذف <i class="fa-duotone fa-trash"></i></h2>
+			<hr />
+		</div>
+		<div asp-validation-summary="All"></div>
+		<div class="mb-3">
+			<label asp-for="GameType.Name"></label>&nbsp;&nbsp;&nbsp;<i class="fa-duotone fa-bowl-food"></i>
+			<input asp-for="GameType.Name" disabled class="form-control" />
+			<span asp-validation-for="GameType.Name" class="text-danger"></span>
+		</div>
+		<button type="submit" class="btn" style="width:150px;"><i class="fa-duotone fa-trash" style="color:red"></i>&nbsp;&nbsp;&nbsp; حذف</button>
+		<a asp-page="Index" class="btn" style="width:200px;"><i class="fa-solid fa-arrow-left-long-to-line"></i>&nbsp;&nbsp;&nbsp; بازگشت به لیست</a>
+	</div>
+
+</form>
+
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial"/>
+	}
+}

@@ -1,0 +1,36 @@
+﻿@page
+@model buygold.Pages.Client.Home.IndexModel
+<div class="row container py-4 py-xl-5">
+	@foreach(var category in Model.CategoryList){
+	<h2 class="text-success pl-1"><b>@category.Name</b></h2>
+	<div class="col-12">
+		<div class="row my-3">
+			@foreach(var MenuItem in Model.MenuItemsList.Where(u=>u.CategoryId==category.Id)){
+				<div class="col-lg-4 col-md-6 pb-4 filter">
+					<div class="card bg-white rounded shadow-sm" style="border:1px solid #222">
+						<div class="card-body pb-1 row">
+								<div class="col-8 h5">@MenuItem.Name</div>
+								<div class="col-4 text-end"><span class="text-info h4">$@MenuItem.Price</span></div>
+						</div>
+							<img class="card-img-top img-fluid d-block mx-auto mb-3" src="@MenuItem.Image" alt="menuitem image">
+						<div class="card-body p-1 px-3 row">
+							<div class="col-6">
+									<span class="badge p-2 border w-100 text-dark bg-warning ">@MenuItem.Category.Name</span>
+							</div>
+							<div class="col-6 border-0">
+									<span class="badge p-2 border w-100 bg-info ">@MenuItem.GameType.Name</span>
+							</div>
+							<div class="col-12 pt-2" style="font-size:13px; text-align:justify">
+									<p> @Html.Raw(MenuItem.Description)</p>
+							</div>
+							<div class="col-12 p-1">
+									<a asp-page="Details" asp-route-id="@MenuItem.Id" class="btn btn-dark form-control btn-sm p-2" style="height:40px">View Details</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+	}
+</div>
