@@ -1,7 +1,7 @@
 # basic E-Commerce
  Project Setup and Configuration
 Setting up a robust web application involves leveraging various tools and resources. Below is an overview of key components and practices in the development process.
-
+...
 Tools Needed:
 To facilitate development and streamline workflows, the following tools are essential:
 
